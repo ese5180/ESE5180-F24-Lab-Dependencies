@@ -50,7 +50,6 @@ void setup()
   }
 
   rf95.setFrequency(frequency); 
-
   rf95.setSpreadingFactor(12);
   rf95.setSignalBandwidth(62500);
 
@@ -78,11 +77,6 @@ void loop()
       SerialUSB.print(rf95.lastRssi(), DEC);
       SerialUSB.println();
 
-      // Send a reply
-      uint8_t toSend[] = "Hello Back!"; 
-      // rf95.send(toSend, sizeof(toSend));
-      // rf95.waitPacketSent();
-      // SerialUSB.println("Sent a reply");
       digitalWrite(LED, LOW); //Turn off status LED
 
     }

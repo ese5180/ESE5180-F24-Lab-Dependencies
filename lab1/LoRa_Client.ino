@@ -84,20 +84,6 @@ void loop()
   byte buf[RH_RF95_MAX_MESSAGE_LEN];
   byte len = sizeof(buf);
 
-  if (rf95.waitAvailableTimeout(1000)) {
-    // Should be a reply message for us now
-    // if (rf95.recv(buf, &len)) {
-    //   SerialUSB.print("Got reply: ");
-    //   SerialUSB.println((char*)buf);
-    //   SerialUSB.print(" RSSI: ");
-    //   SerialUSB.print(rf95.lastRssi(), DEC);
-    // }
-    // else {
-    //   SerialUSB.println("Receive failed");
-    // }
-  }
-  else {
-    //SerialUSB.println("No reply, is the receiver running?");
-  }
+  rf95.waitAvailableTimeout(1000)
   delay(500);
 }
