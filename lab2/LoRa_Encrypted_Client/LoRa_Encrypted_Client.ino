@@ -129,7 +129,7 @@ void loop()
   rf95.waitPacketSent();
   // Now wait for a reply (AKA the ACK for your message)
   received = false;
-  if (rf95.waitAvailableTimeout(3000))
+  if (rf95.waitAvailableTimeout(LISTENING_INTERVAL))
   { 
     // Should be a reply message for us now   
     if (rf95.recv(buf, &len))
@@ -149,7 +149,7 @@ void loop()
     Serial.println("No reply from rf95_server");
   }
 
-  delay(400);
+  delay(PACKET_INTERVAL);
 }
 
 
