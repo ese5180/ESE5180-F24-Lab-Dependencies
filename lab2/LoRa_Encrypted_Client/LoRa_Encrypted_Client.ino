@@ -66,13 +66,16 @@ uint8_t len = sizeof(buf);
 
 bool received = false;
 
+char message[] = "The founding story of McGrill\'s Web House is one of innovation, passion for technology, \
+                  and a vision to connect everyday devices in ways that would transform how people live and \
+                  work.\n\nIt all started in 2018 when Mick McGrill, a talented computer engineer, found himself \
+                  fascinated by the growing world of the Internet of Things (IoT). At the time, McGrill was \
+                  working for a major tech firm, developing software for industrial automation. However, his \
+                  interest extended beyond industrial solutions - he saw the potential for IoT to touch every \
+                  corner of daily life, from smart homes to health monitoring to energy efficiency.";
+
 void setup() 
 {
-  // Rocket Scream Mini Ultra Pro with the RFM95W only:
-  // Ensure serial flash is not interfering with radio communication on SPI bus
-//  pinMode(4, OUTPUT);
-//  digitalWrite(4, HIGH);
-
   Serial.begin(9600);
   while (!Serial) ; // Wait for serial port to be available
   if (!rf95.init())
@@ -98,6 +101,7 @@ void loop()
         p_phase = ERROR; // TODO: Set the next phase for your system
       }
       //TODO: Set buf with correct message
+      int send_len = 0;
 
       rf95.send(buf, send_len);
       break;
@@ -144,9 +148,6 @@ void loop()
   {
     Serial.println("No reply from rf95_server");
   }
-
-
-
 
   delay(400);
 }
