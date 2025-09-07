@@ -6,7 +6,7 @@
 */
 
 // TODO: Update with your team's number
-#define TEAM_NUMBER -1
+#define TEAM_NUMBER 10
 
 #include <SPI.h>
 
@@ -84,6 +84,6 @@ void loop()
   byte buf[RH_RF95_MAX_MESSAGE_LEN];
   byte len = sizeof(buf);
 
-  rf95.waitAvailableTimeout(1000)
+  rf95.waitAvailableTimeout(1000);
   delay(500);
 }
